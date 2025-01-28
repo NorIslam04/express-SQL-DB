@@ -29,7 +29,7 @@ const login = async (email, password) => {
       throw new Error("le mot de passe est incorrect.");
     }
     const token = jwt.sign(
-      { userId: user.id, username:user.username, email:user.email }, // Données à inclure dans le token
+      { userId: user.id }, // Données à inclure dans le token
       process.env.JWT_SECRET, // Clé secrète pour signer le token
       { expiresIn: '1h' } // Durée de validité du token
       );
