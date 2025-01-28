@@ -20,5 +20,17 @@ const createUser = async (req, res) => {// req -> cote client (front use axios) 
     }
 }
 
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const token = await user_service.login(email, password);
+        console.log(token);
+        res.status(200).json(token); // Renvoyer un objet JSON
+    } catch (err) {
+        res.status(400).json({ error: err.message }); // Renvoyer un code d'erreur 400
+    }
+};
 
-module.exports= {getUsers,createUser};
+
+
+module.exports= {getUsers,createUser,login};

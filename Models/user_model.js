@@ -41,7 +41,7 @@ const UserModel = {
       throw new Error(`Erreur lors de la recherche de l'utilisateur: ${error.message}`);
     }
 
-    return data;
+    return {user: data}
   },
 
   async findById(id) {
